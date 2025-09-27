@@ -37,6 +37,7 @@ class _PasswordCheckScreenState extends State<PasswordCheckScreen> {
     _controller.dispose();
     super.dispose();
   }
+
   Color _colorFor(String res) {
     if (res == 'قوية') return Colors.green;
     if (res == 'متوسطة') return Colors.orange;
@@ -50,28 +51,75 @@ class _PasswordCheckScreenState extends State<PasswordCheckScreen> {
     if (res == 'ضعيفة') return Icons.warning;
     return Icons.help_outline;
   }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        appBar: AppBar(title: const Text('فحص كلمة المرور')),
-        body: Padding(
+      appBar: AppBar(title: const Text('فحص كلمة المرور')),
+      body: Padding(
         padding: const EdgeInsets.all(16.0),
-    child: Column(
-    children: [
-    TextField(
-    controller: _controller,
-    obscureText: true,
-    decoration: const InputDecoration(
-    labelText: 'أدخل كلمة المرور',
-    prefixIcon: Icon(Icons.lock),
-    ),
-    ),
-    const SizedBox(height: 12),
-    Row(
-    children: [
-    Expanded(child: ElevatedButton(onPressed: _checkPassword, child: const Text('فحص'))),
-    const SizedBox(width: 12),
-    OutlinedButton(onPressed: () => Navigator.pop(context), child: const Text('رجوع')),
-    ],
-    ),
-    const SizedBox(height: 20),
+        child: Column(
+          children: [
+            TextField(
+              controller: _controller,
+              obscureText: true,
+              decoration: const InputDecoration(
+                labelText: 'أدخل كلمة المرور',
+                prefixIcon: Icon(Icons.lock),
+              ),
+            ),
+            const SizedBox(height: 12),
+            Row(
+              children: [
+                Expanded(
+                  child: ElevatedButton(
+                    onPressed: _checkPassword,
+                    child: const Text('فحص'),
+                  ),
+                ),
+                const SizedBox(width: 12),
+                OutlinedButton(
+                  onPressed: () => Navigator.pop(context),
+                  child: const Text('رجوع'),
+                ),
+              ],
+            ),
+            const SizedBox(height: 20),
+            if (_result != null)
+              Card(
+                color: Colors.grey[50],
+                child: ListTile(
+                  leading: Icon(_iconFor(_result!), color: _colorFor(_result!)),
+                  title: Text('النتيجة: $_result'),
+                  subtitle: const Text('اضغط ماذا يعني لمزيد من التفاصيل'),
+                  trailing: TextButton(
+                    onPressed: () {
+                      showDialog(
+                        context: context,
+                        builder:
+                            (_) => AlertDialog(
+                              title: const Text('ماذا يعني؟'),
+                              content: const Text(
+                                'قوية: طويلة وتحتوي أحرف كبيرة وأرقام ورموز.\n'
+                                'متوسطة: تحتوي تنوعًا ما من أحرف/أرقام.\n'
+                                'ضعيفة: قصيرة أو سهلة التخمين.',
+                              ),
+                              actions: [
+                                TextButton(
+                                  onPressed: () => Navigator.pop(context),
+                                  child: const Text('حسناً'),
+                                ),
+                              ],
+                            ),
+                      );
+                    },
+                    child: const Text('ماذا يعني؟'),
+                  ),
+                ),
+              ),
+          ],
+        ),
+      ),
+    );
+  }
+}
