@@ -1,10 +1,9 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'screens/login_screen.dart';
-import 'screens/dashboard_screen.dart';
-import 'screens/password_check_screen.dart';
-import 'screens/link_check_screen.dart';
-import 'screens/about_screen.dart';
+import 'screens/loginscreen.dart';
+import 'screens/dashboardscreen.dart';
+import 'screens/passwordcheckscreen.dart';
+import 'screens/linkcheckscreen.dart';
+import 'screens/aboutscreen.dart';
 
 void main() {
   runApp(const SecureGuardApp());
