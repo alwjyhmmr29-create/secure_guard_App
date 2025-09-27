@@ -18,3 +18,12 @@ class _LoginScreenState extends State<LoginScreen> {
     _passwordController.dispose();
     super.dispose();
   }
+  void _login() {
+    if (_formKey.currentState!.validate()) {
+      Navigator.pushReplacementNamed(
+        context,
+        '/dashboard',
+        arguments: _usernameController.text.trim(),
+      );
+    }
+  }
