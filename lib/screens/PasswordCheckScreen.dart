@@ -37,3 +37,16 @@ class _PasswordCheckScreenState extends State<PasswordCheckScreen> {
     _controller.dispose();
     super.dispose();
   }
+  Color _colorFor(String res) {
+    if (res == 'قوية') return Colors.green;
+    if (res == 'متوسطة') return Colors.orange;
+    if (res == 'ضعيفة') return Colors.red;
+    return Colors.grey;
+  }
+
+  IconData _iconFor(String res) {
+    if (res == 'قوية') return Icons.check_circle;
+    if (res == 'متوسطة') return Icons.info;
+    if (res == 'ضعيفة') return Icons.warning;
+    return Icons.help_outline;
+  }
