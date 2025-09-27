@@ -20,3 +20,11 @@ class AboutScreen extends StatelessWidget {
     mainAxisSize: MainAxisSize.min,
     crossAxisAlignment: CrossAxisAlignment.start,
     children: [
+    const Text('Secure Guard',
+    style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold)),
+    const SizedBox(height: 8),
+    const Text(
+    'تطبيق نموذجي لعرض واجهات فحص كلمات المرور والروابط.',
+    style: TextStyle(fontSize: 14),
+    ),
+    const Divider(height: 24),
