@@ -40,3 +40,8 @@ class AboutScreen extends StatelessWidget {
     const Text('771219211',
     style: TextStyle(fontSize: 16)),
     const SizedBox(height: 12),
+    Text(
+    'جميع الحقوق محفوظة © ${DateTime.now().year}',
+    style: const TextStyle(fontSize: 13, color: Colors.grey),
+    ),
+    const SizedBox(height: 12),
