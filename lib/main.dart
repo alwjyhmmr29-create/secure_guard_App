@@ -8,3 +8,12 @@ import 'screens/about_screen.dart';
 void main() {
   runApp(const SecureGuardApp());
 }
+class SecureGuardApp extends StatelessWidget {
+  const SecureGuardApp({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return MaterialApp(
+        title: 'Secure Guard',
+        debugShowCheckedModeBanner: false,
+
