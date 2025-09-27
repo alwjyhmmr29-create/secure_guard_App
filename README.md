@@ -1,16 +1,66 @@
-# secure_guard_app
+# 🔐 Secure Guard
 
-A new Flutter project.
+تطبيق تجريبي باستخدام **Flutter** متعلق بالأمن السيبراني، يهدف إلى:
+- ✅ فحص قوة كلمات المرور.
+- ✅ التحقق من الروابط (آمنة / مشبوهة).
+- ✅ تسجيل دخول تجريبي ولوحة تحكم بسيطة.
+- ✅ صفحة تعريفية بالتطبيق والمبرمج.
 
-## Getting Started
+---
 
-This project is a starting point for a Flutter application.
+## 📱 صور من التطبيق (أمثلة)
 
-A few resources to get you started if this is your first Flutter project:
+- شاشة تسجيل الدخول
+- لوحة التحكم
+- فحص كلمة المرور
+- فحص الرابط
+- عن التطبيق
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
+*(يمكنك إضافة صور لاحقًا عند تشغيل التطبيق والتقاط لقطات شاشة)*
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+---
+
+## 🚀 مميزات التطبيق
+- فحص كلمة المرور محليًا (قوية / متوسطة / ضعيفة).
+- التحقق من الروابط ضد كلمات مفتاحية مشبوهة.
+- تصميم بسيط وأنيق باستخدام Flutter Material Design.
+- دعم اللغة العربية بشكل كامل.
+
+---
+
+## 🛠️ المتطلبات
+- تثبيت [Flutter](https://docs.flutter.dev/get-started/install) (يفضل آخر إصدار مستقر).
+- محرر أكواد مثل **VS Code** أو **Android Studio**.
+- جهاز محاكي (Android Emulator / iOS Simulator) أو هاتف حقيقي.
+
+---
+
+## ⚡ التشغيل
+بعد نسخ المشروع وتشغيل الطرفية (Terminal):
+
+```bash
+# تنزيل المكتبات
+flutter pub get
+
+# تشغيل التطبيق على المحاكي أو الهاتف
+flutter run
+📂 هيكل المشروع
+bash
+نسخ الكود
+lib/
+│
+├── main.dart                # نقطة البداية
+│
+└── screens/                 # جميع الشاشات
+    ├── login_screen.dart
+    ├── dashboard_screen.dart
+    ├── password_check_screen.dart
+    ├── link_check_screen.dart
+    └── about_screen.dart
+👨‍💻 المطور
+الاسم: معمر خالد مهيوب
+
+الهاتف: 771219211
+
+📜 الحقوق
+جميع الحقوق محفوظة © 2025
