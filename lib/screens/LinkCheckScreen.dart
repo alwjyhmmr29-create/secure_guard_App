@@ -61,3 +61,27 @@ class _LinkCheckScreenState extends State<LinkCheckScreen> {
       if (res == 'غير صالح') return Icons.error_outline;
       return Icons.help_outline;
     }
+    return Scaffold(
+        appBar: AppBar(title: const Text('فحص الرابط')),
+        body: Padding(
+        padding: const EdgeInsets.all(16.0),
+    child: Column(
+    children: [
+    TextField(
+    controller: _controller,
+    decoration: const InputDecoration(
+    labelText: 'أدخل الرابط هنا',
+    prefixIcon: Icon(Icons.link),
+    hintText: 'https://example.com',
+    ),
+    keyboardType: TextInputType.url,
+    ),
+    const SizedBox(height: 12),
+    Row(
+    children: [
+    Expanded(child: ElevatedButton(onPressed: _checkLink, child: const Text('فحص'))),
+    const SizedBox(width: 12),
+    OutlinedButton(onPressed: () => Navigator.pop(context), child: const Text('رجوع')),
+    ],
+    ),
+    const SizedBox(height: 20),
