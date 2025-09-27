@@ -48,4 +48,16 @@ class SecureGuardApp extends StatelessWidget {
     fillColor: Colors.white,
     ),
     ),
+      initialRoute: '/login',
+      routes: {
+        '/login': (_) => const LoginScreen(),
+        '/dashboard': (_) => const DashboardScreen(),
+        '/password_check': (_) => const PasswordCheckScreen(),
+        '/link_check': (_) => const LinkCheckScreen(),
+        '/about': (_) => const AboutScreen(),
+      },
+    );
+  }
+}
+
 
