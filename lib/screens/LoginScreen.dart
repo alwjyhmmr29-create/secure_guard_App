@@ -41,3 +41,48 @@ class _LoginScreenState extends State<LoginScreen> {
     shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(14)),
     child: Padding(
     padding: const EdgeInsets.all(20.0),
+      child: Form(
+        key: _formKey,
+        child: Column(
+          mainAxisSize: MainAxisSize.min,
+          children: [
+            TextFormField(
+              controller: _usernameController,
+              decoration: const InputDecoration(
+                labelText: 'اسم المستخدم',
+                prefixIcon: Icon(Icons.person),
+              ),
+              validator: (v) => (v == null || v.trim().isEmpty) ? 'أدخل اسم المستخدم' : null,
+            ),
+            const SizedBox(height: 12),
+            TextFormField(
+              controller: _passwordController,
+              decoration: const InputDecoration(
+                labelText: 'كلمة المرور',
+                prefixIcon: Icon(Icons.lock),
+              ),
+              obscureText: true,
+              validator: (v) => (v == null || v.isEmpty) ? 'أدخل كلمة المرور' : null,
+            ),
+            const SizedBox(height: 20),
+            SizedBox(
+              width: double.infinity,
+              child: ElevatedButton(
+                onPressed: _login,
+                child: const Padding(
+                  padding: EdgeInsets.symmetric(vertical: 14.0),
+                  child: Text('تسجيل الدخول', style: TextStyle(fontSize: 16)),
+                ),
+              ),
+            ),
+          ],
+        ),
+      ),
+    ),
+    ),
+    ),
+    ),
+        ),
+    );
+  }
+}
