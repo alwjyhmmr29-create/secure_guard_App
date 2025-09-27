@@ -50,3 +50,28 @@ class _PasswordCheckScreenState extends State<PasswordCheckScreen> {
     if (res == 'ضعيفة') return Icons.warning;
     return Icons.help_outline;
   }
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+        appBar: AppBar(title: const Text('فحص كلمة المرور')),
+        body: Padding(
+        padding: const EdgeInsets.all(16.0),
+    child: Column(
+    children: [
+    TextField(
+    controller: _controller,
+    obscureText: true,
+    decoration: const InputDecoration(
+    labelText: 'أدخل كلمة المرور',
+    prefixIcon: Icon(Icons.lock),
+    ),
+    ),
+    const SizedBox(height: 12),
+    Row(
+    children: [
+    Expanded(child: ElevatedButton(onPressed: _checkPassword, child: const Text('فحص'))),
+    const SizedBox(width: 12),
+    OutlinedButton(onPressed: () => Navigator.pop(context), child: const Text('رجوع')),
+    ],
+    ),
+    const SizedBox(height: 20),
