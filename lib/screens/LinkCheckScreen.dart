@@ -46,3 +46,18 @@ class _LinkCheckScreenState extends State<LinkCheckScreen> {
 
     setState(() => _result = isSuspicious ? 'مشبوه' : 'آمن');
   }
+  @override
+  Widget build(BuildContext context) {
+    Color colorFor(String res) {
+      if (res == 'آمن') return Colors.green;
+      if (res == 'مشبوه') return Colors.orange;
+      if (res == 'غير صالح') return Colors.red;
+      return Colors.grey;
+    }
+
+    IconData iconFor(String res) {
+      if (res == 'آمن') return Icons.check_circle;
+      if (res == 'مشبوه') return Icons.warning;
+      if (res == 'غير صالح') return Icons.error_outline;
+      return Icons.help_outline;
+    }
