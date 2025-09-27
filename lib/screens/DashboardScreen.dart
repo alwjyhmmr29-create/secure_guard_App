@@ -6,3 +6,13 @@ class DashboardScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final username = ModalRoute.of(context)!.settings.arguments as String? ?? 'المستخدم';
+    return Scaffold(
+        appBar: AppBar(
+        title: const Text('لوحة التحكم'),
+    actions: [
+    IconButton(
+    icon: const Icon(Icons.info_outline),
+    onPressed: () => Navigator.pushNamed(context, '/about'),
+    )
+    ],
+    ),
