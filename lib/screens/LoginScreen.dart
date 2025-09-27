@@ -27,3 +27,17 @@ class _LoginScreenState extends State<LoginScreen> {
       );
     }
   }
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+        appBar: AppBar(title: const Text('تسجيل الدخول')),
+        body: Padding(
+        padding: const EdgeInsets.all(16.0),
+    child: Center(
+    child: SingleChildScrollView(
+    child: Card(
+    color: Colors.grey[50],
+    elevation: 5,
+    shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(14)),
+    child: Padding(
+    padding: const EdgeInsets.all(20.0),
