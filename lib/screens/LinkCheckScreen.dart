@@ -17,6 +17,7 @@ class _LinkCheckScreenState extends State<LinkCheckScreen> {
     _controller.dispose();
     super.dispose();
   }
+
   void _checkLink() {
     final text = _controller.text.trim();
     if (text.isEmpty) {
@@ -39,13 +40,23 @@ class _LinkCheckScreenState extends State<LinkCheckScreen> {
 
     final host = uri.host.toLowerCase();
     final suspiciousKeywords = [
-      'bit.ly', 'tinyurl', 'goo.gl', 'login', 'verify',
-      'confirm', 'free', 'update', 'secure'
+      'bit.ly',
+      'tinyurl',
+      'goo.gl',
+      'login',
+      'verify',
+      'confirm',
+      'free',
+      'update',
+      'secure',
     ];
-    bool isSuspicious = suspiciousKeywords.any((k) => host.contains(k) || uri!.path.contains(k));
+    bool isSuspicious = suspiciousKeywords.any(
+      (k) => host.contains(k) || uri!.path.contains(k),
+    );
 
     setState(() => _result = isSuspicious ? 'مشبوه' : 'آمن');
   }
+
   @override
   Widget build(BuildContext context) {
     Color colorFor(String res) {
@@ -61,27 +72,58 @@ class _LinkCheckScreenState extends State<LinkCheckScreen> {
       if (res == 'غير صالح') return Icons.error_outline;
       return Icons.help_outline;
     }
+
     return Scaffold(
-        appBar: AppBar(title: const Text('فحص الرابط')),
-        body: Padding(
+      appBar: AppBar(title: const Text('فحص الرابط')),
+      body: Padding(
         padding: const EdgeInsets.all(16.0),
-    child: Column(
-    children: [
-    TextField(
-    controller: _controller,
-    decoration: const InputDecoration(
-    labelText: 'أدخل الرابط هنا',
-    prefixIcon: Icon(Icons.link),
-    hintText: 'https://example.com',
-    ),
-    keyboardType: TextInputType.url,
-    ),
-    const SizedBox(height: 12),
-    Row(
-    children: [
-    Expanded(child: ElevatedButton(onPressed: _checkLink, child: const Text('فحص'))),
-    const SizedBox(width: 12),
-    OutlinedButton(onPressed: () => Navigator.pop(context), child: const Text('رجوع')),
-    ],
-    ),
-    const SizedBox(height: 20),
+        child: Column(
+          children: [
+            TextField(
+              controller: _controller,
+              decoration: const InputDecoration(
+                labelText: 'أدخل الرابط هنا',
+                prefixIcon: Icon(Icons.link),
+                hintText: 'https://example.com',
+              ),
+              keyboardType: TextInputType.url,
+            ),
+            const SizedBox(height: 12),
+            Row(
+              children: [
+                Expanded(
+                  child: ElevatedButton(
+                    onPressed: _checkLink,
+                    child: const Text('فحص'),
+                  ),
+                ),
+                const SizedBox(width: 12),
+                OutlinedButton(
+                  onPressed: () => Navigator.pop(context),
+                  child: const Text('رجوع'),
+                ),
+              ],
+            ),
+            const SizedBox(height: 20),
+            if (_result != null)
+              Card(
+                color: Colors.grey[50],
+                child: ListTile(
+                  leading: Icon(iconFor(_result!), color: colorFor(_result!)),
+                  title: Text('الحكم: $_result'),
+                  subtitle:
+                      _result == 'آمن'
+                          ? const Text('الرابط يبدو آمناً (تقييم بسيط محلي).')
+                          : (_result == 'مشبوه'
+                              ? const Text(
+                                'الرابط قد يكون مشبوهًا. تجنّب فتحه إن لم تكن متأكدًا.',
+                              )
+                              : const Text('الرابط غير صالح.')),
+                ),
+              ),
+          ],
+        ),
+      ),
+    );
+  }
+}
