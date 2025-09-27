@@ -16,4 +16,36 @@ class SecureGuardApp extends StatelessWidget {
     return MaterialApp(
         title: 'Secure Guard',
         debugShowCheckedModeBanner: false,
+        theme: ThemeData(
+        primarySwatch: Colors.grey,
+        scaffoldBackgroundColor: Colors.grey[100],
+        appBarTheme: AppBarTheme(
+        backgroundColor: Colors.grey[800],
+        foregroundColor: Colors.white,
+        elevation: 2,
+    ),
+    elevatedButtonTheme: ElevatedButtonThemeData(
+    style: ElevatedButton.styleFrom(
+    backgroundColor: Colors.grey[800],
+    foregroundColor: Colors.white,
+    shape: RoundedRectangleBorder(
+    borderRadius: BorderRadius.circular(12),
+    ),
+    ),
+    ),
+    outlinedButtonTheme: OutlinedButtonThemeData(
+    style: OutlinedButton.styleFrom(
+    foregroundColor: Colors.grey[800],
+    side: BorderSide(color: Colors.grey[600]!),
+    shape: RoundedRectangleBorder(
+    borderRadius: BorderRadius.circular(12),
+    ),
+    ),
+    ),
+    inputDecorationTheme: InputDecorationTheme(
+    border: const OutlineInputBorder(),
+    filled: true,
+    fillColor: Colors.white,
+    ),
+    ),
 
